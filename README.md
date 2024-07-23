@@ -1,0 +1,1 @@
+This is just a workbook with miscellaneous python coding exercises I can reference and document my progress. Designed to drill functions and modules, data manipulation and iterators and generators daily. 
