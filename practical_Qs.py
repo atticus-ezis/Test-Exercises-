@@ -302,7 +302,7 @@ df.dropna(inplace=True)
 
 orders_per_customer = df.groupby("CustomerID")['Quantity'].sum().reset_index()
 top5_customers = orders_per_customer.sort_values(by="Quantity", ascending=False).head(5)
-print(top5_customers)
+#print(top5_customers)
 
 df['total_rev'] = df["Quantity"] * df["Price"]
 rev_per_cus = df.groupby("CustomerID")['total_rev'].sum().reset_index()
@@ -324,5 +324,30 @@ plt.plot(rev_per_month["Month"], rev_per_month["total_rev"])
 plt.title('revenue per month')
 plt.xlabel("month")
 plt.ylabel("ravenue")
-plt.show()
+#plt.show()
 
+# Write a function called generate_permutations that takes a string as input and 
+# returns all possible permutations of the characters in the string. 
+# The function should return a list of strings, each representing a unique permutation.
+strx = "this is a test"
+print(strx.split())
+def generate_permutations(s):
+   if len(s) == 0:
+      return []
+   if len(s) == 1:
+      return [s]
+   
+   permutations = []
+   for i in range(len(s)):
+      # Fix the character at index i
+        fixed_char = s[i]
+        # Remaining substring without the fixed character
+        remaining_string = s[:i] + s[i+1:]
+        # Generate permutations of the remaining substring
+        for p in generate_permutations(remaining_string):
+            # Concatenate the fixed character with each permutation of the remaining substring
+            permutations.append(fixed_char + p)
+            return permutations
+
+# Example usage
+print(generate_permutations("abc"))
