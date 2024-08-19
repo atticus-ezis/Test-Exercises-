@@ -307,7 +307,7 @@ top5_customers = orders_per_customer.sort_values(by="Quantity", ascending=False)
 df['total_rev'] = df["Quantity"] * df["Price"]
 rev_per_cus = df.groupby("CustomerID")['total_rev'].sum().reset_index()
 best_cus = rev_per_cus.loc[rev_per_cus['total_rev'].idxmax()]
-print(best_cus)
+#print(best_cus)
 
 df['OrderDate'] = pd.to_datetime(df['OrderDate'])
 
@@ -329,8 +329,7 @@ plt.ylabel("ravenue")
 # Write a function called generate_permutations that takes a string as input and 
 # returns all possible permutations of the characters in the string. 
 # The function should return a list of strings, each representing a unique permutation.
-strx = "this is a test"
-print(strx.split())
+
 def generate_permutations(s):
    if len(s) == 0:
       return []
@@ -340,8 +339,10 @@ def generate_permutations(s):
    permutations = []
    for i in range(len(s)):
       # Fix the character at index i
+            # a
         fixed_char = s[i]
-        # Remaining substring without the fixed character
+        # Remaining substring. Everything up to i, everything after i 
+            # b c
         remaining_string = s[:i] + s[i+1:]
         # Generate permutations of the remaining substring
         for p in generate_permutations(remaining_string):
@@ -350,4 +351,15 @@ def generate_permutations(s):
             return permutations
 
 # Example usage
-print(generate_permutations("abc"))
+#print(generate_permutations("abc"))
+
+def fizzbuzz(n):
+   num_list = []
+   for x in range(int(n)):
+      num_list.append(x)
+   num_list.append(n)
+   return num_list
+print(fizzbuzz(3))
+
+
+
